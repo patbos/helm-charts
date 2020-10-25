@@ -1,0 +1,9 @@
+apiVersion: v2
+name: fr24feed
+description: FlightRadar24's fr24feed
+type: application
+version: 1.0.0
+appVersion: 1.0.25-3
+sources:
+  - https://www.flightradar24.com/build-your-own
+  - https://github.com/mikenye/docker-flightradar24
