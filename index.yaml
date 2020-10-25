@@ -1,0 +1,17 @@
+apiVersion: v1
+entries:
+  fr24feed:
+  - apiVersion: v2
+    appVersion: 1.0.25-3
+    created: "2020-10-25T22:43:17.345178741Z"
+    description: FlightRadar24's fr24feed
+    digest: 3aee7484fc14db7d62adb4a7d8362a2e109ad31c6feeb988571f7ea10f861731
+    name: fr24feed
+    sources:
+    - https://www.flightradar24.com/build-your-own
+    - https://github.com/mikenye/docker-flightradar24
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/fr24feed-1.0.0/fr24feed-1.0.0.tgz
+    version: 1.0.0
+generated: "2020-10-25T22:43:17.18232843Z"
