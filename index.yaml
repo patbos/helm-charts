@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  adsb-exchange:
+  - apiVersion: v2
+    appVersion: "20201026"
+    created: "2020-11-11T20:14:01.28159295Z"
+    description: A Helm chart for Kubernetes
+    digest: 62b0c740e616c41ec232f61a6ed4118c174e91b4b139ac705694af22c83cc637
+    name: adsb-exchange
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/adsb-exchange-1.0.0/adsb-exchange-1.0.0.tgz
+    version: 1.0.0
   fr24feed:
   - apiVersion: v2
     appVersion: 1.0.25-3
