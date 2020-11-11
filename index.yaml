@@ -14,4 +14,17 @@ entries:
     urls:
     - https://github.com/patbos/helm-charts/releases/download/fr24feed-1.0.0/fr24feed-1.0.0.tgz
     version: 1.0.0
+  opensky-network:
+  - apiVersion: v2
+    appVersion: 2.1.7-1
+    created: "2020-11-11T20:08:16.32556571Z"
+    description: opensky-network
+    digest: 490a22f7ec3539e669c6981ae18f0e496dea8c3d74088396918891d8f4439a7d
+    maintainers:
+    - name: patbos
+    name: opensky-network
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/opensky-network-1.0.1/opensky-network-1.0.1.tgz
+    version: 1.0.1
 generated: "2020-10-25T22:43:17.18232843Z"
