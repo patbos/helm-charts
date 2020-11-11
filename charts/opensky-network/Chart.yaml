@@ -1,0 +1,8 @@
+apiVersion: v2
+name: opensky-network
+description: opensky-network
+type: application
+version: 1.0.0
+appVersion: 2.1.7-1
+maintainers:
+  - name: patbos
