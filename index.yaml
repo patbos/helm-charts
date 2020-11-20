@@ -49,4 +49,15 @@ entries:
     urls:
     - https://github.com/patbos/helm-charts/releases/download/planefinder-1.0.0/planefinder-1.0.0.tgz
     version: 1.0.0
+  radarbox:
+  - apiVersion: v2
+    appVersion: v0.3.5_build_20200727132301
+    created: "2020-11-20T18:37:59.252009688Z"
+    description: A Helm chart for Kubernetes
+    digest: fea3579f37ec4a77f1965261d4985ecbeeec031cc2561d99427a772ea99adf36
+    name: radarbox
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/radarbox-1.0.0/radarbox-1.0.0.tgz
+    version: 1.0.0
 generated: "2020-10-25T22:43:17.18232843Z"
