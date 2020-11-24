@@ -1,8 +1,11 @@
 apiVersion: v2
 name: opensky-network
-description: opensky-network
+description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to OpenSky Network
 type: application
-version: 1.0.1
+version: 1.0.2
 appVersion: 2.1.7-1
+sources:
+  - https://opensky-network.org/
+  - https://github.com/mikenye/docker-opensky-network
 maintainers:
   - name: patbos
