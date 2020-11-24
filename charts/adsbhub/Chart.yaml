@@ -1,0 +1,11 @@
+apiVersion: v2
+name: adsbhub
+description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to ADSBHub
+type: application
+version: 1.0.0
+appVersion: 1.06
+sources:
+  - https://www.adsbhub.org/
+  - https://github.com/mikenye/docker-adsbhub
+maintainers:
+  - name: patbos
