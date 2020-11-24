@@ -3,6 +3,21 @@ entries:
   adsb-exchange:
   - apiVersion: v2
     appVersion: "20201026"
+    created: "2020-11-24T21:45:52.316961229Z"
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to ADS-B Exchange
+    digest: 48c197431939ec7b59ee40ee9153817ed1df261fa3b80b964124bc80d24f51b7
+    maintainers:
+    - name: patbos
+    name: adsb-exchange
+    sources:
+    - https://adsbexchange.com/how-to-feed/
+    - https://github.com/mikenye/docker-adsbexchange
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/adsb-exchange-1.0.1/adsb-exchange-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: "20201026"
     created: "2020-11-11T20:14:01.28159295Z"
     description: A Helm chart for Kubernetes
     digest: 62b0c740e616c41ec232f61a6ed4118c174e91b4b139ac705694af22c83cc637
@@ -30,6 +45,21 @@ entries:
   fr24feed:
   - apiVersion: v2
     appVersion: 1.0.25-3
+    created: "2020-11-24T21:45:52.379953761Z"
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
+    digest: 3aa100579e1bcb10535bb9af5fe959e9e0f2b2ee00401e462226bc4d25e99d9e
+    maintainers:
+    - name: patbos
+    name: fr24feed
+    sources:
+    - https://www.flightradar24.com/build-your-own
+    - https://github.com/mikenye/docker-flightradar24
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/fr24feed-1.0.2/fr24feed-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.0.25-3
     created: "2020-10-25T22:43:17.345178741Z"
     description: FlightRadar24's fr24feed
     digest: 3aee7484fc14db7d62adb4a7d8362a2e109ad31c6feeb988571f7ea10f861731
@@ -42,6 +72,21 @@ entries:
     - https://github.com/patbos/helm-charts/releases/download/fr24feed-1.0.0/fr24feed-1.0.0.tgz
     version: 1.0.0
   opensky-network:
+  - apiVersion: v2
+    appVersion: 2.1.7-1
+    created: "2020-11-24T21:45:52.463698898Z"
+    description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to OpenSky Network
+    digest: 8a10f6edb0bf35e8378790946fbf5efdd77a4874108cc7f17ed6f6d5fc1eb372
+    maintainers:
+    - name: patbos
+    name: opensky-network
+    sources:
+    - https://opensky-network.org/
+    - https://github.com/mikenye/docker-opensky-network
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/opensky-network-1.0.2/opensky-network-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     appVersion: 2.1.7-1
     created: "2020-11-11T20:08:16.32556571Z"
@@ -57,6 +102,21 @@ entries:
   planefinder:
   - apiVersion: v2
     appVersion: 4.1.1
+    created: "2020-11-24T21:45:52.54715743Z"
+    description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to PlaneFinder
+    digest: e2ce3310dc1904ce72639d97eb5b1edeb6d133c3763eca20d6aeecb52cf5f384
+    maintainers:
+    - name: patbos
+    name: planefinder
+    sources:
+    - https://planefinder.net/
+    - https://github.com/mikenye/docker-planefinder
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/planefinder-1.0.1/planefinder-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 4.1.1
     created: "2020-11-20T15:20:21.694703614Z"
     description: A Helm chart for Kubernetes
     digest: bd23f0ea7cbb2393933cb2ba6f281f3fa419318a87735e87851688d8a5fff3d3
@@ -66,6 +126,21 @@ entries:
     - https://github.com/patbos/helm-charts/releases/download/planefinder-1.0.0/planefinder-1.0.0.tgz
     version: 1.0.0
   radarbox:
+  - apiVersion: v2
+    appVersion: v0.3.5_build_20200727132301
+    created: "2020-11-24T21:45:52.620018654Z"
+    description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to RadarBox
+    digest: 9a3bab892496fad294fa0339327c1cd6521adcd78f5199dbf4dda304e1f5bb44
+    maintainers:
+    - name: patbos
+    name: radarbox
+    sources:
+    - https://www.radarbox.com/
+    - https://github.com/mikenye/docker-radarbox
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/radarbox-1.0.1/radarbox-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     appVersion: v0.3.5_build_20200727132301
     created: "2020-11-20T18:37:59.252009688Z"
