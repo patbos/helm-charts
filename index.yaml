@@ -11,6 +11,22 @@ entries:
     urls:
     - https://github.com/patbos/helm-charts/releases/download/adsb-exchange-1.0.0/adsb-exchange-1.0.0.tgz
     version: 1.0.0
+  adsbhub:
+  - apiVersion: v2
+    appVersion: "1.06"
+    created: "2020-11-24T21:41:48.72434888Z"
+    description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to ADSBHub
+    digest: 1cea723a60544743f884dbf612d8efd7e8ddff0a3c0b99fec4d530cdbd97887d
+    maintainers:
+    - name: patbos
+    name: adsbhub
+    sources:
+    - https://www.adsbhub.org/
+    - https://github.com/mikenye/docker-adsbhub
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/adsbhub-1.0.0/adsbhub-1.0.0.tgz
+    version: 1.0.0
   fr24feed:
   - apiVersion: v2
     appVersion: 1.0.25-3
