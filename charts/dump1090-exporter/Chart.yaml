@@ -1,6 +1,6 @@
 apiVersion: v2
 name: dump1090-exporter
-description: A Helm chart for Kubernetes
+description: The dump1090exporter collects statistics from dump1090 and exposes it to the Prometheus monitoring server for aggregation
 type: application
 version: 1.0.0
 appVersion: latest
