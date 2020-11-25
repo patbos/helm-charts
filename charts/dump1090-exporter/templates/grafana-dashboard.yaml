@@ -1,0 +1,13 @@
+{{- if .Values.grafana.dashboard.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    {{- include "dump1090-exporter.labels" . | nindent 4 }}
+    grafana_dashboard: "1"
+  name: dump1090-exporter
+  namespace: "{{ .Release.Namespace }}"
+data:
+  dump1090-exporter.json: |-
+{{ .Files.Get "dashboards/flight.json" | indent 4}}
+{{- end }}

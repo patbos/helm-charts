@@ -1,0 +1,25 @@
+{{- if .Values.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    {{- include "dump1090-exporter.labels" . | nindent 4 }}
+  name: dump1090-exporter
+  namespace: "{{ .Release.Namespace }}"
+spec:
+  endpoints:
+    - path: /metrics
+      port: metrics
+      scheme: http
+      interval: {{ .Values.serviceMonitor.interval }}s
+      {{- with .Values.serviceMonitor.metricRelabelings }}
+      metricRelabelings:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  namespaceSelector:
+    matchNames:
+      - "{{ .Release.Namespace }}"
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: dump1090-exporter
+{{- end }}
