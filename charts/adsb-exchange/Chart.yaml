@@ -2,8 +2,8 @@ apiVersion: v2
 name: adsb-exchange
 description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to ADS-B Exchange
 type: application
-version: 1.0.1
-appVersion: 20201026
+version: 1.0.2
+appVersion: 20201113
 sources:
   - https://adsbexchange.com/how-to-feed/
   - https://github.com/mikenye/docker-adsbexchange
