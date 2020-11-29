@@ -2,6 +2,21 @@ apiVersion: v1
 entries:
   adsb-exchange:
   - apiVersion: v2
+    appVersion: "20201113"
+    created: "2020-11-29T20:44:00.727009121Z"
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to ADS-B Exchange
+    digest: 195f636ad555de4107eca2bfe77279d030757ec68bb71f0f05dd2fed86c6727c
+    maintainers:
+    - name: patbos
+    name: adsb-exchange
+    sources:
+    - https://adsbexchange.com/how-to-feed/
+    - https://github.com/mikenye/docker-adsbexchange
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/adsb-exchange-1.0.2/adsb-exchange-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     appVersion: "20201026"
     created: "2020-11-24T21:45:52.316961229Z"
     description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to ADS-B Exchange
