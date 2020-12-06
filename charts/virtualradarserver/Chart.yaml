@@ -1,0 +1,11 @@
+apiVersion: v2
+name: virtualradarserver
+description: Virtual Radar Server (VRS) plots aircraft positions on a map.
+type: application
+version: 1.0.0
+appVersion: 2.4.4.36598
+sources:
+  - https://www.virtualradarserver.co.uk/
+  - https://github.com/mikenye/docker-virtualradarserver
+maintainers:
+  - name: patbos
