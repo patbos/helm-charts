@@ -166,4 +166,20 @@ entries:
     urls:
     - https://github.com/patbos/helm-charts/releases/download/radarbox-1.0.0/radarbox-1.0.0.tgz
     version: 1.0.0
+  virtualradarserver:
+  - apiVersion: v2
+    appVersion: 2.4.4.36598
+    created: "2020-12-06T22:18:11.272031428Z"
+    description: Virtual Radar Server (VRS) plots aircraft positions on a map.
+    digest: 5313f3729cce7f0298d199019cde216d9dd54757920dc2d4ad8cd487fe7e8538
+    maintainers:
+    - name: patbos
+    name: virtualradarserver
+    sources:
+    - https://www.virtualradarserver.co.uk/
+    - https://github.com/mikenye/docker-virtualradarserver
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/virtualradarserver-1.0.0/virtualradarserver-1.0.0.tgz
+    version: 1.0.0
 generated: "2020-10-25T22:43:17.18232843Z"
