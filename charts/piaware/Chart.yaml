@@ -1,0 +1,7 @@
+apiVersion: v2
+name: piaware
+description: FlightAware's PiAware docker container including support for RTL-SDR, bladeRF and others
+
+type: application
+version: 1.0.0
+appVersion: v4.0

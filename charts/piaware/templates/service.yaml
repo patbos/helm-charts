@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "piaware.fullname" . }}
+  labels:
+    {{- include "piaware.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  {{- if .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.service.loadBalancerIP }}
+  {{- end }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: 30105
+      targetPort: mlat
+      protocol: TCP
+      name: mlat
+    - port: 30005
+      targetPort: beast
+      protocol: TCP
+      name: beast
+  selector:
+    {{- include "piaware.selectorLabels" . | nindent 4 }}
