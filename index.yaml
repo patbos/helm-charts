@@ -114,6 +114,17 @@ entries:
     urls:
     - https://github.com/patbos/helm-charts/releases/download/opensky-network-1.0.1/opensky-network-1.0.1.tgz
     version: 1.0.1
+  piaware:
+  - apiVersion: v2
+    appVersion: v4.0
+    created: "2021-01-05T20:57:33.492176422Z"
+    description: FlightAware's PiAware docker container including support for RTL-SDR, bladeRF and others
+    digest: c223c3282b5a110f4cd10b99a4be514957699be5d063813cacc149b0aa3f1759
+    name: piaware
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/piaware-1.0.0/piaware-1.0.0.tgz
+    version: 1.0.0
   planefinder:
   - apiVersion: v2
     appVersion: 4.1.1
