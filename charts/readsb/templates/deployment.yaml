@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "readsb.fullname" . }}
+  labels:
+    {{- include "readsb.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "readsb.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "readsb.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      hostNetwork: true
+      serviceAccountName: {{ include "readsb.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        {{- toYaml .Values.additionalVolumes | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: TZ
+              value: "{{ .Values.timezone}}"
+            - name: READSB_DCFILTER
+              value: "true"
+            - name: READSB_DEVICE_TYPE
+              value: "rtlsdr"
+            - name: READSB_LAT
+              value: "{{ .Values.location.latitude }}"
+            - name: READSB_LON
+              value: "{{ .Values.location.longitude }}"
+            - name: READSB_MODEAC
+              value: "true"
+            - name: READSB_RX_LOCATION_ACCURACY
+              value: "2"
+            - name: READSB_STATS_RANGE
+              value: "true"
+            - name: READSB_NET_ENABLE
+              value: "true"
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+            - name: beast
+              containerPort: 30005
+              protocol: TCP
+          volumeMounts:
+            {{- toYaml .Values.additionalVolumeMounts | nindent 12 }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
