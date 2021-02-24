@@ -177,6 +177,17 @@ entries:
     urls:
     - https://github.com/patbos/helm-charts/releases/download/radarbox-1.0.0/radarbox-1.0.0.tgz
     version: 1.0.0
+  readsb:
+  - apiVersion: v2
+    appVersion: v4.0.1
+    created: "2021-02-24T22:08:32.631843055Z"
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    digest: 27398606ae66d95539e8e414f58d5925038d7e98e06d9609fb752c718402fd39
+    name: readsb
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/readsb-1.0.0/readsb-1.0.0.tgz
+    version: 1.0.0
   virtualradarserver:
   - apiVersion: v2
     appVersion: 2.4.4.36598
