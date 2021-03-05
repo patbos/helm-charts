@@ -3,5 +3,5 @@ name: readsb
 description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
 
 type: application
-version: 1.0.0
+version: 1.0.1
 appVersion: v4.0.1
