@@ -4,6 +4,10 @@ metadata:
   name: {{ include "readsb.fullname" . }}
   labels:
     {{- include "readsb.labels" . | nindent 4 }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   type: {{ .Values.service.type }}
   {{- if .Values.service.loadBalancerIP }}
@@ -18,5 +22,9 @@ spec:
       targetPort: beast
       protocol: TCP
       name: beast
+    - port: {{ .Values.service.sbs.port }}
+      targetPort: sbs
+      protocol: TCP
+      name: sbs
   selector:
     {{- include "readsb.selectorLabels" . | nindent 4 }}
