@@ -74,6 +74,10 @@ spec:
               value: "true"
             - name: READSB_NET_ENABLE
               value: "true"
+            {{- if .Values.readsb.gain -}}
+            - name: READSB_GAIN
+              value: "{{ .Values.readsb.gain }}"
+            {{ end -}}
           ports:
             - name: http
               containerPort: 8080

@@ -22,6 +22,9 @@ readsb:
   # Set this to any value to display raw messages in Beast ASCII mode
   mlat: false
 
+  #Set gain (in dB). Use autogain to have the container determine an appropriate gain, more on this below.
+  #gain: autogain
+
 location:
   longitude: "59.0"
   latitude: "17.0"
