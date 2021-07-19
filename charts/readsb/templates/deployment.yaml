@@ -36,8 +36,18 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            {{- if .Values.timezone -}}
             - name: TZ
               value: "{{ .Values.timezone }}"
+            {{ end -}}
+            {{- if .Values.location.latitude -}}
+            - name: READSB_LAT
+              value: "{{ .Values.location.latitude }}"
+            {{ end -}}
+            {{- if .Values.location.longitude -}}
+            - name: READSB_LON
+              value: "{{ .Values.location.longitude }}"
+            {{ end -}}
             {{- if .Values.readsb.dcfilter }}
             - name: READSB_DCFILTER
               value: "{{ .Values.readsb.dcfilter }}"
@@ -62,22 +72,52 @@ spec:
             - name: READSB_MLAT
               value: "{{ .Values.readsb.mlat }}"
             {{ end -}}
-            - name: READSB_LAT
-              value: "{{ .Values.location.latitude }}"
-            - name: READSB_LON
-              value: "{{ .Values.location.longitude }}"
+            {{- if .Values.readsb.modeac -}}
             - name: READSB_MODEAC
-              value: "true"
+              value: "{{ .Values.readsb.modeac }}"
+            {{ end -}}
+            {{- if .Values.readsb.rxLocationAccuracy -}}
             - name: READSB_RX_LOCATION_ACCURACY
               value: "2"
+            {{ end -}}
+            {{- if .Values.readsb.statsRange -}}
             - name: READSB_STATS_RANGE
-              value: "true"
+              value: "{{ .Values.readsb.statsRange }}"
+            {{ end -}}
+            {{- if .Values.readsb.netEnable -}}
             - name: READSB_NET_ENABLE
-              value: "true"
+              value: "{{ .Values.readsb.netEnable }}"
+            {{ end -}}
+            {{- if .Values.readsb.netOnly -}}
+            - name: READSB_NET_ONLY
+              value: "{{ .Values.readsb.netOnly }}"
+            {{ end -}}
+            {{- if .Values.readsb.disableWebApp -}}
+            - name: DISABLE_WEBAPP
+              value: "{{ .Values.readsb.disableWebApp }}"
+            {{ end -}}
+            {{- if .Values.readsb.forwardMlat -}}
+            - name: READSB_FORWARD_MLAT
+              value: "{{ .Values.readsb.forwardMlat }}"
+            {{ end -}}
             {{- if .Values.readsb.gain }}
             - name: READSB_GAIN
               value: "{{ .Values.readsb.gain }}"
             {{ end }}
+            {{- if .Values.influxdb }}
+            {{- if .Values.influxdb.url }}
+            - name: INFLUXDBURL
+              value: "{{ .Values.influxdb.url }}"
+            {{ end }}
+            {{- if .Values.influxdb.username }}
+            - name: INFLUXDBUSERNAME
+              value: "{{ .Values.influxdb.username }}"
+            {{- end }}
+            {{- if .Values.influxdb.password }}
+            - name: INFLUXDBPASSWORD
+              value: "{{ .Values.influxdb.password }}"
+            {{- end }}
+            {{- end }}
           ports:
             - name: http
               containerPort: 8080

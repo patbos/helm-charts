@@ -25,10 +25,26 @@ readsb:
   #Set gain (in dB). Use autogain to have the container determine an appropriate gain, more on this below.
   #gain: autogain
 
+
+
+  # modeac: true
+  # rxLocationAccuracy: 2
+  # statsRange: true
+  netEnable: true
+  # netOnly: true
+  # disableWebApp: true
+  # forwardMlat: true
+
 location:
   longitude: "59.0"
   latitude: "17.0"
 
+
+
+#influxdb:
+#  url: http://influxdb:8086
+#  username: admin
+#  password: admin123
 
 securityContext:
   privileged: true
