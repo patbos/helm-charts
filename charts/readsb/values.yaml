@@ -76,6 +76,8 @@ service:
     port: 30005
   sbs:
     port: 30003
+  raw:
+    port: 30002
 ingress:
   enabled: false
   annotations: {}

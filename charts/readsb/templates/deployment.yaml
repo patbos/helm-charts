@@ -82,11 +82,14 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-            - name: beast
-              containerPort: 30005
+            - name: raw
+              containerPort: 30002
               protocol: TCP
             - name: sbs
               containerPort: 30003
+              protocol: TCP
+            - name: beast
+              containerPort: 30005
               protocol: TCP
           volumeMounts:
             {{- toYaml .Values.additionalVolumeMounts | nindent 12 }}
