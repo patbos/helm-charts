@@ -26,5 +26,9 @@ spec:
       targetPort: sbs
       protocol: TCP
       name: sbs
+    - port: {{ .Values.service.raw.port }}
+      targetPort: raw
+      protocol: TCP
+      name: raw
   selector:
     {{- include "readsb.selectorLabels" . | nindent 4 }}
