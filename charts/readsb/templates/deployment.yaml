@@ -28,7 +28,9 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       volumes:
+        {{- if .Values.additionalVolumes -}}
         {{- toYaml .Values.additionalVolumes | nindent 8 }}
+        {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -36,25 +38,38 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            {{ if .Values.timezone -}}
             - name: TZ
               value: "{{ .Values.timezone }}"
+            {{ end -}}
+            {{- if .Values.location -}}
+            {{ if .Values.location.latitude -}}
+            - name: READSB_LAT
+              value: "{{ .Values.location.latitude }}"
+            {{ end -}}
+            {{ if .Values.location.longitude -}}
+            - name: READSB_LON
+              value: "{{ .Values.location.longitude }}"
+            {{ end -}}
+            {{- end -}}
+            {{- if .Values.readsb -}}
             {{- if .Values.readsb.dcfilter }}
             - name: READSB_DCFILTER
               value: "{{ .Values.readsb.dcfilter }}"
             {{ end -}}
-            {{- if .Values.readsb.deviceType -}}
+            {{ if .Values.readsb.deviceType -}}
             - name: READSB_DEVICE_TYPE
               value: "{{ .Values.readsb.deviceType }}"
             {{ end -}}
-            {{- if .Values.readsb.fix -}}
+            {{ if .Values.readsb.fix -}}
             - name: READSB_FIX
               value: "{{ .Values.readsb.fix }}"
             {{ end -}}
-            {{- if .Values.readsb.forwardMlat -}}
+            {{ if .Values.readsb.forwardMlat -}}
             - name: READSB_FORWARD_MLAT
               value: "{{ .Values.readsb.forwardMlat }}"
             {{ end -}}
-            {{- if .Values.readsb.freq -}}
+            {{ if .Values.readsb.freq -}}
             - name: READSB_FREQ
               value: "{{ .Values.readsb.freq }}"
             {{ end -}}
@@ -62,22 +77,65 @@ spec:
             - name: READSB_MLAT
               value: "{{ .Values.readsb.mlat }}"
             {{ end -}}
-            - name: READSB_LAT
-              value: "{{ .Values.location.latitude }}"
-            - name: READSB_LON
-              value: "{{ .Values.location.longitude }}"
+            {{- if .Values.readsb.modeac -}}
             - name: READSB_MODEAC
-              value: "true"
+              value: "{{ .Values.readsb.modeac }}"
+            {{ end -}}
+            {{ if .Values.readsb.rxLocationAccuracy -}}
             - name: READSB_RX_LOCATION_ACCURACY
               value: "2"
+            {{ end -}}
+            {{ if .Values.readsb.statsRange -}}
             - name: READSB_STATS_RANGE
-              value: "true"
-            - name: READSB_NET_ENABLE
-              value: "true"
-            {{- if .Values.readsb.gain }}
+              value: "{{ .Values.readsb.statsRange }}"
+            {{ end -}}
+            {{ if .Values.readsb.disableWebApp -}}
+            - name: DISABLE_WEBAPP
+              value: "{{ .Values.readsb.disableWebApp }}"
+            {{ end -}}
+            {{ if .Values.readsb.disablePerformanceGraphs -}}
+            - name: DISABLE_PERFORMANCE_GRAPHS
+              value: "{{ .Values.readsb.disablePerformanceGraphs }}"
+            {{ end -}}
+            {{ if .Values.readsb.gain -}}
             - name: READSB_GAIN
               value: "{{ .Values.readsb.gain }}"
+            {{ end -}}
+            {{- if .Values.readsb.net -}}
+            {{ if .Values.readsb.net.connector -}}
+            - name: READSB_NET_CONNECTOR
+              value: "{{ .Values.readsb.net.connector }}"
+            {{ end -}}
+            {{ if .Values.readsb.net.enable -}}
+            - name: READSB_NET_ENABLE
+              value: "{{ .Values.readsb.net.enable }}"
+            {{ end -}}
+            {{ if .Values.readsb.net.only -}}
+            - name: READSB_NET_ONLY
+              value: "{{ .Values.readsb.net.only }}"
+            {{ end -}}
+            {{- if .Values.readsb.net.beast -}}
+            {{ if .Values.readsb.net.beast.outputPort -}}
+            - name: READSB_NET_BEAST_OUTPUT_PORT
+              value: "{{ .Values.readsb.net.beast.outputPort }}"
+            {{ end -}}
+            {{ end -}}
+            {{ end -}}
+            {{ end -}}
+            {{- if .Values.influxdb }}
+            {{ if .Values.influxdb.url }}
+            - name: INFLUXDBURL
+              value: "{{ .Values.influxdb.url }}"
+            {{ end -}}
+            {{ if .Values.influxdb.username }}
+            - name: INFLUXDBUSERNAME
+              value: "{{ .Values.influxdb.username }}"
             {{ end }}
+            {{ if .Values.influxdb.password }}
+            - name: INFLUXDBPASSWORD
+              value: "{{ .Values.influxdb.password }}"
+            {{ end }}
+            {{- end }}
           ports:
             - name: http
               containerPort: 8080
@@ -89,10 +147,12 @@ spec:
               containerPort: 30003
               protocol: TCP
             - name: beast
-              containerPort: 30005
+              containerPort: {{ (((.Values.readsb).net).beast).outputPort | default 30005 }}
               protocol: TCP
           volumeMounts:
+            {{- if .Values.additionalVolumeMounts -}}
             {{- toYaml .Values.additionalVolumeMounts | nindent 12 }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /

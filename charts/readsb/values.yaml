@@ -25,24 +25,43 @@ readsb:
   #Set gain (in dB). Use autogain to have the container determine an appropriate gain, more on this below.
   #gain: autogain
 
-location:
-  longitude: "59.0"
-  latitude: "17.0"
 
+
+  # modeac: true
+  # rxLocationAccuracy: 2
+  # statsRange: true
+  # disableWebApp: true
+  # disablePerformanceGraphs: true
+  # forwardMlat: true
+  # net:
+  #   enable: true
+  #   only: true
+  #   connector: piaware,30105,beast_in;adsbx,30105,beast_in;rbfeeder,30105,beast_in
+
+#location:
+#  longitude: "59.0"
+#  latitude: "17.0"
+
+
+
+#influxdb:
+#  url: http://influxdb:8086
+#  username: admin
+#  password: admin123
 
 securityContext:
   privileged: true
 
 # Path to your piaware device in the container
-additionalVolumeMounts:
-  - name: usb
-    mountPath: /dev/bus/usb/001/005
+#additionalVolumeMounts:
+#  - name: usb
+#    mountPath: /dev/bus/usb/001/005
 
 # Path to your piaware device on the host
-additionalVolumes:
-  - name: usb
-    hostPath:
-      path: /dev/bus/usb/001/005
+#additionalVolumes:
+#  - name: usb
+#    hostPath:
+#      path: /dev/bus/usb/001/005
 
 image:
   repository: mikenye/readsb-protobuf
@@ -72,8 +91,6 @@ service:
   type: ClusterIP
   http:
     port: 8080
-  beast:
-    port: 30005
   sbs:
     port: 30003
   raw:
