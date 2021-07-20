@@ -153,6 +153,7 @@ spec:
             {{- if .Values.additionalVolumeMounts -}}
             {{- toYaml .Values.additionalVolumeMounts | nindent 12 }}
             {{- end }}
+          {{ if not (.Values.readsb.disableWebApp) -}}
           livenessProbe:
             httpGet:
               path: /
@@ -161,6 +162,7 @@ spec:
             httpGet:
               path: /
               port: http
+          {{ end -}}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
