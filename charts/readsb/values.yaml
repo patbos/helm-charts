@@ -30,11 +30,13 @@ readsb:
   # modeac: true
   # rxLocationAccuracy: 2
   # statsRange: true
-  #netEnable: true
-  # netOnly: true
   # disableWebApp: true
+  # disablePerformanceGraphs: true
   # forwardMlat: true
-  #netConnector: piaware,30105,beast_in;adsbx,30105,beast_in;rbfeeder,30105,beast_in
+  # net:
+  #   enable: true
+  #   only: true
+  #   connector: piaware,30105,beast_in;adsbx,30105,beast_in;rbfeeder,30105,beast_in
 
 #location:
 #  longitude: "59.0"
@@ -89,8 +91,6 @@ service:
   type: ClusterIP
   http:
     port: 8080
-  beast:
-    port: 30005
   sbs:
     port: 30003
   raw:

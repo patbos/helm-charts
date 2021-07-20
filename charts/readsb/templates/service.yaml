@@ -18,7 +18,7 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-    - port: {{ .Values.service.beast.port }}
+    - port: {{ (((.Values.readsb).net).beast).outputPort | default 30005 }}
       targetPort: beast
       protocol: TCP
       name: beast

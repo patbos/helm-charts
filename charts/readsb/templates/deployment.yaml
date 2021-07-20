@@ -93,21 +93,33 @@ spec:
             - name: DISABLE_WEBAPP
               value: "{{ .Values.readsb.disableWebApp }}"
             {{ end -}}
+            {{ if .Values.readsb.disablePerformanceGraphs -}}
+            - name: DISABLE_PERFORMANCE_GRAPHS
+              value: "{{ .Values.readsb.disablePerformanceGraphs }}"
+            {{ end -}}
             {{ if .Values.readsb.gain -}}
             - name: READSB_GAIN
               value: "{{ .Values.readsb.gain }}"
             {{ end -}}
-            {{ if .Values.readsb.netConnector -}}
+            {{- if .Values.readsb.net -}}
+            {{ if .Values.readsb.net.connector -}}
             - name: READSB_NET_CONNECTOR
-              value: "{{ .Values.readsb.netConnector }}"
+              value: "{{ .Values.readsb.net.connector }}"
             {{ end -}}
-            {{ if .Values.readsb.netEnable -}}
+            {{ if .Values.readsb.net.enable -}}
             - name: READSB_NET_ENABLE
-              value: "{{ .Values.readsb.netEnable }}"
+              value: "{{ .Values.readsb.net.enable }}"
             {{ end -}}
-            {{ if .Values.readsb.netOnly -}}
+            {{ if .Values.readsb.net.only -}}
             - name: READSB_NET_ONLY
-              value: "{{ .Values.readsb.netOnly }}"
+              value: "{{ .Values.readsb.net.only }}"
+            {{ end -}}
+            {{- if .Values.readsb.net.beast -}}
+            {{ if .Values.readsb.net.beast.outputPort -}}
+            - name: READSB_NET_BEAST_OUTPUT_PORT
+              value: "{{ .Values.readsb.net.beast.outputPort }}"
+            {{ end -}}
+            {{ end -}}
             {{ end -}}
             {{ end -}}
             {{- if .Values.influxdb }}
@@ -135,7 +147,7 @@ spec:
               containerPort: 30003
               protocol: TCP
             - name: beast
-              containerPort: 30005
+              containerPort: {{ (((.Values.readsb).net).beast).outputPort | default 30005 }}
               protocol: TCP
           volumeMounts:
             {{- if .Values.additionalVolumeMounts -}}
