@@ -26,7 +26,7 @@ readsb:
   #gain: autogain
 
 
-
+  # deviceSerial: "00001000"
   # modeac: true
   # rxLocationAccuracy: 2
   # statsRange: true
