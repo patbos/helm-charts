@@ -61,6 +61,10 @@ spec:
             - name: READSB_DEVICE_TYPE
               value: "{{ .Values.readsb.deviceType }}"
             {{ end -}}
+            {{ if .Values.readsb.deviceSerial -}}
+            - name: READSB_RTLSDR_DEVICE
+              value: "{{ .Values.readsb.deviceSerial }}"
+            {{ end -}}
             {{ if .Values.readsb.fix -}}
             - name: READSB_FIX
               value: "{{ .Values.readsb.fix }}"
