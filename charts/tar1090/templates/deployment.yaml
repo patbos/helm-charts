@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "tar1090.fullname" . }}
+  labels:
+    {{- include "tar1090.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "tar1090.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "tar1090.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "tar1090.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: TZ
+              value: "{{ .Values.timezone }}"
+            - name: LAT
+              value: "{{ .Values.location.latitude }}"
+            - name: LONG
+              value: "{{ .Values.location.longitude }}"
+            - name: BEASTHOST
+              value: "{{ .Values.beast.host }}"
+            - name: BEASTPORT
+              value: "{{ .Values.beast.port }}"
+            {{- if .Values.mlat.host }}
+            - name: MLATHOST
+              value: "{{ .Values.mlat.host }}"
+            {{- end }}
+            {{- if .Values.mlat.port }}
+            - name: MLATPORT
+              value: "{{ .Values.mlat.port }}"
+            {{- end }}
+            {{- if .Values.timelapse.enable }}
+            - name: ENABLE_TIMELAPSE1090
+              value: "true"
+            {{- end }}
+            {{- if .Values.timelapse.interval }}
+            - name: TIMELAPSE1090_INTERVAL
+              value: "{{ .Values.timelapse.interval }}"
+            {{- end }}
+            {{- if .Values.timelapse.history }}
+            - name: TIMELAPSE1090_HISTORY
+              value: "{{ .Values.timelapse.history }}"
+            {{- end }}
+            {{- if .Values.title.showPlaneCount }}
+            - name: TAR1090_PLANECOUNTINTITLE
+              value: "true"
+            {{- end }}
+          ports:
+           - name: http
+             containerPort: 80
+             protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
