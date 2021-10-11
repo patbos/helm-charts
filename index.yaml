@@ -258,6 +258,17 @@ entries:
     urls:
     - https://github.com/patbos/helm-charts/releases/download/readsb-1.0.0/readsb-1.0.0.tgz
     version: 1.0.0
+  tar1090:
+  - apiVersion: v2
+    appVersion: commit_a270ddce5035c8dca6953d3ca9d6ba476e1a100a
+    created: "2021-10-11T07:06:14.418824733Z"
+    description: A Helm chart for Kubernetes
+    digest: e57a691fe04174d0e37cd23097c6206c317d6ed219357d412d107b804ba4121d
+    name: tar1090
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/tar1090-1.0.0/tar1090-1.0.0.tgz
+    version: 1.0.0
   virtualradarserver:
   - apiVersion: v2
     appVersion: 2.4.4.36598
