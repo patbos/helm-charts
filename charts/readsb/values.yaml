@@ -48,6 +48,10 @@ readsb:
 #  url: http://influxdb:8086
 #  username: admin
 #  password: admin123
+#  v2:
+#    bucket: default
+#    org: influxdb
+#    token: "secret"
 
 securityContext:
   privileged: true
