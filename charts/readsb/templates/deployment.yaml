@@ -126,19 +126,35 @@ spec:
             {{ end -}}
             {{ end -}}
             {{ end -}}
-            {{- if .Values.influxdb }}
+            {{- if .Values.influxdb -}}
             {{ if .Values.influxdb.url }}
             - name: INFLUXDBURL
               value: "{{ .Values.influxdb.url }}"
             {{ end -}}
-            {{ if .Values.influxdb.username }}
+            {{ if .Values.influxdb.username -}}
             - name: INFLUXDBUSERNAME
               value: "{{ .Values.influxdb.username }}"
-            {{ end }}
-            {{ if .Values.influxdb.password }}
+            {{ end -}}
+            {{ if .Values.influxdb.password -}}
             - name: INFLUXDBPASSWORD
               value: "{{ .Values.influxdb.password }}"
-            {{ end }}
+            {{ end -}}
+            {{ if .Values.influxdb.v2 -}}
+            - name: INFLUXDB_V2
+              value: "true"
+            {{ if .Values.influxdb.v2.bucket -}}
+            - name: INFLUXDB_V2_BUCKET
+              value: "{{ .Values.influxdb.v2.bucket }}"
+            {{ end -}}
+            {{ if .Values.influxdb.v2.org -}}
+            - name: INFLUXDB_V2_ORG
+              value: "{{ .Values.influxdb.v2.org }}"
+            {{ end -}}
+            {{ if .Values.influxdb.v2.token -}}
+            - name: INFLUXDB_V2_TOKEN
+              value: "{{ .Values.influxdb.v2.token }}"
+            {{ end -}}
+            {{ end -}}
             {{- end }}
           ports:
             - name: http
