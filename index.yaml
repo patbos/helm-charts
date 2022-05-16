@@ -270,6 +270,16 @@ entries:
     version: 1.0.0
   tar1090:
   - apiVersion: v2
+    appVersion: commit_0ffc4bd33deffae17cfaa6f4a746aa3db18754d1
+    created: "2022-05-16T19:39:38.226435684Z"
+    description: A Helm chart for Kubernetes
+    digest: e893a0a06996dde5fada3b1ea93b5c4d5317f2ba6eb0778d34d03825a089ef3b
+    name: tar1090
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/tar1090-1.0.2/tar1090-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     appVersion: commit_a270ddce5035c8dca6953d3ca9d6ba476e1a100a
     created: "2021-10-11T07:06:14.418824733Z"
     description: A Helm chart for Kubernetes
