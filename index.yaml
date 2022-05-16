@@ -60,6 +60,21 @@ entries:
   fr24feed:
   - apiVersion: v2
     appVersion: 1.0.25-3
+    created: "2022-05-16T20:06:00.129409982Z"
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
+    digest: fd2be07e8a0e408aae2166a0b2c96257dcc214d9db34868bb3a472c1d4259c4a
+    maintainers:
+    - name: patbos
+    name: fr24feed
+    sources:
+    - https://www.flightradar24.com/build-your-own
+    - https://github.com/mikenye/docker-flightradar24
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/fr24feed-1.0.3/fr24feed-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: 1.0.25-3
     created: "2020-11-24T21:45:52.379953761Z"
     description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
     digest: 3aa100579e1bcb10535bb9af5fe959e9e0f2b2ee00401e462226bc4d25e99d9e
@@ -117,6 +132,16 @@ entries:
   piaware:
   - apiVersion: v2
     appVersion: v4.0
+    created: "2022-05-16T20:06:00.207853541Z"
+    description: FlightAware's PiAware docker container including support for RTL-SDR, bladeRF and others
+    digest: 36e3ab5c8da1eb2581662f55e4cf78cda9a4899c626799b28d38571d56e08449
+    name: piaware
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/piaware-1.0.1/piaware-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: v4.0
     created: "2021-01-05T20:57:33.492176422Z"
     description: FlightAware's PiAware docker container including support for RTL-SDR, bladeRF and others
     digest: c223c3282b5a110f4cd10b99a4be514957699be5d063813cacc149b0aa3f1759
@@ -126,6 +151,21 @@ entries:
     - https://github.com/patbos/helm-charts/releases/download/piaware-1.0.0/piaware-1.0.0.tgz
     version: 1.0.0
   planefinder:
+  - apiVersion: v2
+    appVersion: 4.1.1
+    created: "2022-05-16T20:06:00.289741806Z"
+    description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to PlaneFinder
+    digest: 694eca745522f88758cfcc7b29a2b38f9039cdc8228659ffb25307ce39fc7136
+    maintainers:
+    - name: patbos
+    name: planefinder
+    sources:
+    - https://planefinder.net/
+    - https://github.com/mikenye/docker-planefinder
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/planefinder-1.0.2/planefinder-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     appVersion: 4.1.1
     created: "2020-11-24T21:45:52.54715743Z"
@@ -178,6 +218,16 @@ entries:
     - https://github.com/patbos/helm-charts/releases/download/radarbox-1.0.0/radarbox-1.0.0.tgz
     version: 1.0.0
   readsb:
+  - apiVersion: v2
+    appVersion: v4.0.3
+    created: "2022-05-16T20:06:00.356372541Z"
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    digest: f09ee061ad2019a6e239e711ac94edca172307a8283902015816929f3d93f72f
+    name: readsb
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/readsb-1.0.9/readsb-1.0.9.tgz
+    version: 1.0.9
   - apiVersion: v2
     appVersion: v4.0.3
     created: "2022-02-12T12:07:31.281144194Z"
@@ -290,6 +340,21 @@ entries:
     - https://github.com/patbos/helm-charts/releases/download/tar1090-1.0.0/tar1090-1.0.0.tgz
     version: 1.0.0
   virtualradarserver:
+  - apiVersion: v2
+    appVersion: 2.4.4.36598
+    created: "2022-05-16T20:06:00.440496911Z"
+    description: Virtual Radar Server (VRS) plots aircraft positions on a map.
+    digest: 234579f23970c95a511bd877fa2001c5d16dfacef0004f3aa9b4f63405ee6ba8
+    maintainers:
+    - name: patbos
+    name: virtualradarserver
+    sources:
+    - https://www.virtualradarserver.co.uk/
+    - https://github.com/mikenye/docker-virtualradarserver
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/virtualradarserver-1.0.1/virtualradarserver-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     appVersion: 2.4.4.36598
     created: "2020-12-06T22:18:11.272031428Z"
