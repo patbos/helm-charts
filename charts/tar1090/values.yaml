@@ -80,3 +80,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+persistence:
+  globeHistory:
+    enabled: true
+    existingClaim: tar1090-globe-history-claim
