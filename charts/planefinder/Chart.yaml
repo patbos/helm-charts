@@ -2,7 +2,7 @@ apiVersion: v2
 name: planefinder
 description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to PlaneFinder
 type: application
-version: 1.0.1
+version: 1.0.2
 appVersion: 4.1.1
 sources:
   - https://planefinder.net/
