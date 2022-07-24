@@ -1,0 +1,6 @@
+apiVersion: v2
+name: plane-watch
+description: Docker container to feed ADS-B data into plane.watch
+type: application
+version: 1.0.0
+appVersion: "f6273ce"
