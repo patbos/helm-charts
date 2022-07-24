@@ -150,6 +150,17 @@ entries:
     urls:
     - https://github.com/patbos/helm-charts/releases/download/piaware-1.0.0/piaware-1.0.0.tgz
     version: 1.0.0
+  plane-watch:
+  - apiVersion: v2
+    appVersion: f6273ce
+    created: "2022-07-24T09:11:46.531986357Z"
+    description: Docker container to feed ADS-B data into plane.watch
+    digest: b6ce9b805d36e4b682dad0b803d632de95ee81a3755ef00bd4e114b8ea37ca44
+    name: plane-watch
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/plane-watch-1.0.0/plane-watch-1.0.0.tgz
+    version: 1.0.0
   planefinder:
   - apiVersion: v2
     appVersion: 4.1.1
