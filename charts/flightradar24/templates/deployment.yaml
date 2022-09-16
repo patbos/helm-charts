@@ -38,8 +38,10 @@ spec:
               value: "{{ .Values.beast.host }}"
             - name: BEASTPORT
               value: "{{ .Values.beast.port }}"
+            {{ if .Values.mlat -}}
             - name: MLAT
-              value: "{{ .Values.mlat }}"
+              value: "yes"
+            {{ end -}}
             - name: FR24KEY
               value: "{{ .Values.fr24_key }}"
             - name: VERBOSE_LOGGING
