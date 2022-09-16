@@ -13,7 +13,6 @@ replicaCount: 1
 
 image:
   repository: mikenye/fr24feed
-  tag: 1.0.25-3_armhf_arm64
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
