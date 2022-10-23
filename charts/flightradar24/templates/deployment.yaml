@@ -50,11 +50,8 @@ spec:
             - name: http
               containerPort: 8754
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
           readinessProbe:
+            initialDelaySeconds: 20
             httpGet:
               path: /
               port: http

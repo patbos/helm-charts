@@ -60,6 +60,7 @@ spec:
               path: /
               port: http
           readinessProbe:
+            initialDelaySeconds: 20
             httpGet:
               path: /
               port: http
