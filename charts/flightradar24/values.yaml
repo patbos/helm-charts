@@ -12,7 +12,7 @@ verbose_logging: false
 replicaCount: 1
 
 image:
-  repository: mikenye/fr24feed
+  repository: ghcr.io/sdr-enthusiasts/docker-flightradar24
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
