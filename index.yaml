@@ -148,6 +148,16 @@ entries:
   piaware:
   - apiVersion: v2
     appVersion: v4.0
+    created: "2022-12-17T14:39:15.368252464Z"
+    description: FlightAware's PiAware docker container including support for RTL-SDR, bladeRF and others
+    digest: 6e31ea14212854d5281bed2f415c61b56cd252f91cf290d830959c205b592900
+    name: piaware
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/piaware-1.0.2/piaware-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: v4.0
     created: "2022-05-16T20:06:00.207853541Z"
     description: FlightAware's PiAware docker container including support for RTL-SDR, bladeRF and others
     digest: 36e3ab5c8da1eb2581662f55e4cf78cda9a4899c626799b28d38571d56e08449
