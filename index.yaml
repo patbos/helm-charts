@@ -60,6 +60,21 @@ entries:
   flightradar24:
   - apiVersion: v2
     appVersion: 1.0.30-3
+    created: "2022-12-17T14:46:01.349787587Z"
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
+    digest: 4f810efe53b5bc032c4f9d94f99200890469805c5bab2c8d028fe2d2d7ad6f9f
+    maintainers:
+    - name: patbos
+    name: flightradar24
+    sources:
+    - https://www.flightradar24.com/build-your-own
+    - https://github.com/sdr-enthusiasts/docker-flightradar24
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/flightradar24-1.0.7/flightradar24-1.0.7.tgz
+    version: 1.0.7
+  - apiVersion: v2
+    appVersion: 1.0.30-3
     created: "2022-09-16T21:24:46.923391934Z"
     description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
     digest: 9ea9cffda5ee000b6d3d8264e2e4ac3d272af26cce919f6bdb3fea26c9d0fe79
