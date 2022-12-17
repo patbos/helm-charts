@@ -51,7 +51,15 @@ spec:
               containerPort: 8754
               protocol: TCP
           readinessProbe:
-            initialDelaySeconds: 20
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+            httpGet:
+              path: /
+              port: http
+          livenessProbe:
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+            periodSeconds: 300
             httpGet:
               path: /
               port: http

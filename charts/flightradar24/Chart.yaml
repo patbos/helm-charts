@@ -2,7 +2,7 @@ apiVersion: v2
 name: flightradar24
 description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
 type: application
-version: 1.0.5
+version: 1.0.6
 appVersion: 1.0.30-3
 sources:
   - https://www.flightradar24.com/build-your-own
