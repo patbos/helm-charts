@@ -1,0 +1,15 @@
+{{- if .Values.prometheus.serviceMonitor.enabled -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    {{- include "readsb.labels" . | nindent 4 }}
+  name: {{ include "readsb.fullname" . }}
+spec:
+  endpoints:
+    - interval: 30s
+      port: metrics
+  selector:
+    matchLabels:
+      {{- include "readsb.selectorLabels" . | nindent 6 }}
+{{- end }}

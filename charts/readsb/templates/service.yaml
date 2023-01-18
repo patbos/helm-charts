@@ -30,5 +30,10 @@ spec:
       targetPort: raw
       protocol: TCP
       name: raw
+    - port: 9273
+      targetPort: metrics
+      protocol: TCP
+      name: metrics
+
   selector:
     {{- include "readsb.selectorLabels" . | nindent 4 }}
