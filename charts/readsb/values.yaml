@@ -68,7 +68,7 @@ securityContext:
 #      path: /dev/bus/usb/001/005
 
 image:
-  repository: mikenye/readsb-protobuf
+  repository: ghcr.io/sdr-enthusiasts/docker-readsb-protobuf
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -99,6 +99,12 @@ service:
     port: 30003
   raw:
     port: 30002
+
+prometheus:
+  enabled: false
+  serviceMonitor:
+    enabled: false
+
 ingress:
   enabled: false
   annotations: {}

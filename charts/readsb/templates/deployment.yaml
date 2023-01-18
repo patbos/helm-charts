@@ -156,6 +156,10 @@ spec:
             {{ end -}}
             {{ end -}}
             {{- end }}
+            {{- if .Values.prometheus.enabled }}
+            - name: ENABLE_PROMETHEUS
+              value: "true"
+            {{- end }}
           ports:
             - name: http
               containerPort: 8080
@@ -168,6 +172,9 @@ spec:
               protocol: TCP
             - name: beast
               containerPort: {{ (((.Values.readsb).net).beast).outputPort | default 30005 }}
+              protocol: TCP
+            - name: metrics
+              containerPort: 9273
               protocol: TCP
           volumeMounts:
             {{- if .Values.additionalVolumeMounts -}}
