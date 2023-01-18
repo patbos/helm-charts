@@ -272,6 +272,16 @@ entries:
   readsb:
   - apiVersion: v2
     appVersion: v4.0.3
+    created: "2023-01-18T20:11:10.350728019Z"
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    digest: 3c035c42f2a088fafbd6000d95b71ce115669f4639727092251fd0d0677a9afb
+    name: readsb
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/readsb-1.0.11/readsb-1.0.11.tgz
+    version: 1.0.11
+  - apiVersion: v2
+    appVersion: v4.0.3
     created: "2022-05-17T19:53:47.95056497Z"
     description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
     digest: c11038c80d1e28d345789950ec877fdc7500985473336438251adc59f6943020
