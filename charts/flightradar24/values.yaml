@@ -9,6 +9,17 @@ fr24_key: your_key
 
 verbose_logging: false
 
+readinessProbe:
+  enabled: false
+  initialDelaySeconds: 60
+  timeoutSeconds: 5
+livenessProbe:
+  enabled: false
+  initialDelaySeconds: 60
+  timeoutSeconds: 5
+  periodSeconds: 300
+
+
 replicaCount: 1
 
 image:
