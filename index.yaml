@@ -60,6 +60,21 @@ entries:
   flightradar24:
   - apiVersion: v2
     appVersion: 1.0.30-3
+    created: "2023-01-19T19:49:58.224270603Z"
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
+    digest: cb6732763cf322ca608435141faf33674b4f809d96e09e0a9bef7dc671907f7f
+    maintainers:
+    - name: patbos
+    name: flightradar24
+    sources:
+    - https://www.flightradar24.com/build-your-own
+    - https://github.com/sdr-enthusiasts/docker-flightradar24
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/flightradar24-1.0.8/flightradar24-1.0.8.tgz
+    version: 1.0.8
+  - apiVersion: v2
+    appVersion: 1.0.30-3
     created: "2022-12-17T14:46:01.349787587Z"
     description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
     digest: 4f810efe53b5bc032c4f9d94f99200890469805c5bab2c8d028fe2d2d7ad6f9f
@@ -270,6 +285,16 @@ entries:
     - https://github.com/patbos/helm-charts/releases/download/radarbox-1.0.0/radarbox-1.0.0.tgz
     version: 1.0.0
   readsb:
+  - apiVersion: v2
+    appVersion: v4.0.3
+    created: "2023-01-19T19:49:58.33863075Z"
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    digest: c714cf54423c2f6c14bfdb1c0ea76fa38604b23395c1b830fc6a62d605424dae
+    name: readsb
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/readsb-1.0.12/readsb-1.0.12.tgz
+    version: 1.0.12
   - apiVersion: v2
     appVersion: v4.0.3
     created: "2023-01-18T20:11:10.350728019Z"
