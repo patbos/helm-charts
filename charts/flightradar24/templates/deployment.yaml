@@ -50,19 +50,23 @@ spec:
             - name: http
               containerPort: 8754
               protocol: TCP
+          {{ if .Values.readinessProbe.enabled -}}
           readinessProbe:
-            initialDelaySeconds: 60
-            timeoutSeconds: 5
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
             httpGet:
               path: /
               port: http
+          {{ end -}}
+          {{ if .Values.livenessProbe.enabled -}}
           livenessProbe:
-            initialDelaySeconds: 60
-            timeoutSeconds: 5
-            periodSeconds: 300
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
             httpGet:
               path: /
               port: http
+          {{ end -}}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

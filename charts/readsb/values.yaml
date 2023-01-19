@@ -104,6 +104,7 @@ prometheus:
   enabled: false
   serviceMonitor:
     enabled: false
+    interval: 30s
 
 ingress:
   enabled: false
