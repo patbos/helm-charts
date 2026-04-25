@@ -3,8 +3,25 @@ entries:
   adsb-exchange:
   - apiVersion: v2
     appVersion: "20201113"
+    created: "2026-04-25T18:34:57.479360352Z"
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another
+      host providing ModeS/BEAST data), and sends data to ADS-B Exchange
+    digest: 9fbc2681e6e03988ac6d56465706ab30b7f2d606e7def1408dec74c796b1676a
+    maintainers:
+    - name: patbos
+    name: adsb-exchange
+    sources:
+    - https://adsbexchange.com/how-to-feed/
+    - https://github.com/mikenye/docker-adsbexchange
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/adsb-exchange-1.0.3/adsb-exchange-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: "20201113"
     created: "2020-11-29T20:44:00.727009121Z"
-    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to ADS-B Exchange
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another
+      host providing ModeS/BEAST data), and sends data to ADS-B Exchange
     digest: 195f636ad555de4107eca2bfe77279d030757ec68bb71f0f05dd2fed86c6727c
     maintainers:
     - name: patbos
@@ -19,7 +36,8 @@ entries:
   - apiVersion: v2
     appVersion: "20201026"
     created: "2020-11-24T21:45:52.316961229Z"
-    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to ADS-B Exchange
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another
+      host providing ModeS/BEAST data), and sends data to ADS-B Exchange
     digest: 48c197431939ec7b59ee40ee9153817ed1df261fa3b80b964124bc80d24f51b7
     maintainers:
     - name: patbos
@@ -41,11 +59,44 @@ entries:
     urls:
     - https://github.com/patbos/helm-charts/releases/download/adsb-exchange-1.0.0/adsb-exchange-1.0.0.tgz
     version: 1.0.0
+  adsb-ultrafeeder:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2026-04-25T18:34:57.598385729Z"
+    description: ADS-B data collector with readsb, tar1090, graphs1090, MLAT, and
+      aggregator forwarding
+    digest: 036bac414cae463bc1779027b2d7005d8b07286312f1998d822574ff31d9b4cd
+    maintainers:
+    - name: patbos
+    name: adsb-ultrafeeder
+    sources:
+    - https://github.com/sdr-enthusiasts/docker-adsb-ultrafeeder
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/adsb-ultrafeeder-1.0.0/adsb-ultrafeeder-1.0.0.tgz
+    version: 1.0.0
   adsbhub:
   - apiVersion: v2
     appVersion: "1.06"
+    created: "2026-04-25T18:34:57.707449812Z"
+    description: Pulls ModeS/BEAST information from a host or container providing
+      ModeS/BEAST data, and sends data to ADSBHub
+    digest: 32bc65688c58df80d1097137214566b631819dc301fa0aabd9f97b9a7e092b5a
+    maintainers:
+    - name: patbos
+    name: adsbhub
+    sources:
+    - https://www.adsbhub.org/
+    - https://github.com/mikenye/docker-adsbhub
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/adsbhub-1.0.1/adsbhub-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: "1.06"
     created: "2020-11-24T21:41:48.72434888Z"
-    description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to ADSBHub
+    description: Pulls ModeS/BEAST information from a host or container providing
+      ModeS/BEAST data, and sends data to ADSBHub
     digest: 1cea723a60544743f884dbf612d8efd7e8ddff0a3c0b99fec4d530cdbd97887d
     maintainers:
     - name: patbos
@@ -61,7 +112,8 @@ entries:
   - apiVersion: v2
     appVersion: 1.0.30-3
     created: "2023-01-19T19:49:58.224270603Z"
-    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another
+      host providing ModeS/BEAST data), and sends data to FlightRadar24
     digest: cb6732763cf322ca608435141faf33674b4f809d96e09e0a9bef7dc671907f7f
     maintainers:
     - name: patbos
@@ -76,7 +128,8 @@ entries:
   - apiVersion: v2
     appVersion: 1.0.30-3
     created: "2022-12-17T14:46:01.349787587Z"
-    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another
+      host providing ModeS/BEAST data), and sends data to FlightRadar24
     digest: 4f810efe53b5bc032c4f9d94f99200890469805c5bab2c8d028fe2d2d7ad6f9f
     maintainers:
     - name: patbos
@@ -91,7 +144,8 @@ entries:
   - apiVersion: v2
     appVersion: 1.0.30-3
     created: "2022-09-16T21:24:46.923391934Z"
-    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another
+      host providing ModeS/BEAST data), and sends data to FlightRadar24
     digest: 9ea9cffda5ee000b6d3d8264e2e4ac3d272af26cce919f6bdb3fea26c9d0fe79
     maintainers:
     - name: patbos
@@ -107,7 +161,8 @@ entries:
   - apiVersion: v2
     appVersion: 1.0.25-3
     created: "2022-05-16T20:06:00.129409982Z"
-    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another
+      host providing ModeS/BEAST data), and sends data to FlightRadar24
     digest: fd2be07e8a0e408aae2166a0b2c96257dcc214d9db34868bb3a472c1d4259c4a
     maintainers:
     - name: patbos
@@ -122,7 +177,8 @@ entries:
   - apiVersion: v2
     appVersion: 1.0.25-3
     created: "2020-11-24T21:45:52.379953761Z"
-    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another host providing ModeS/BEAST data), and sends data to FlightRadar24
+    description: Pulls ModeS/BEAST information from the mikenye/piaware (or another
+      host providing ModeS/BEAST data), and sends data to FlightRadar24
     digest: 3aa100579e1bcb10535bb9af5fe959e9e0f2b2ee00401e462226bc4d25e99d9e
     maintainers:
     - name: patbos
@@ -151,7 +207,8 @@ entries:
   - apiVersion: v2
     appVersion: 2.1.7-1
     created: "2020-11-24T21:45:52.463698898Z"
-    description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to OpenSky Network
+    description: Pulls ModeS/BEAST information from a host or container providing
+      ModeS/BEAST data, and sends data to OpenSky Network
     digest: 8a10f6edb0bf35e8378790946fbf5efdd77a4874108cc7f17ed6f6d5fc1eb372
     maintainers:
     - name: patbos
@@ -179,7 +236,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0
     created: "2022-12-17T14:39:15.368252464Z"
-    description: FlightAware's PiAware docker container including support for RTL-SDR, bladeRF and others
+    description: FlightAware's PiAware docker container including support for RTL-SDR,
+      bladeRF and others
     digest: 6e31ea14212854d5281bed2f415c61b56cd252f91cf290d830959c205b592900
     name: piaware
     type: application
@@ -189,7 +247,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0
     created: "2022-05-16T20:06:00.207853541Z"
-    description: FlightAware's PiAware docker container including support for RTL-SDR, bladeRF and others
+    description: FlightAware's PiAware docker container including support for RTL-SDR,
+      bladeRF and others
     digest: 36e3ab5c8da1eb2581662f55e4cf78cda9a4899c626799b28d38571d56e08449
     name: piaware
     type: application
@@ -199,7 +258,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0
     created: "2021-01-05T20:57:33.492176422Z"
-    description: FlightAware's PiAware docker container including support for RTL-SDR, bladeRF and others
+    description: FlightAware's PiAware docker container including support for RTL-SDR,
+      bladeRF and others
     digest: c223c3282b5a110f4cd10b99a4be514957699be5d063813cacc149b0aa3f1759
     name: piaware
     type: application
@@ -221,7 +281,8 @@ entries:
   - apiVersion: v2
     appVersion: 4.1.1
     created: "2022-05-16T20:06:00.289741806Z"
-    description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to PlaneFinder
+    description: Pulls ModeS/BEAST information from a host or container providing
+      ModeS/BEAST data, and sends data to PlaneFinder
     digest: 694eca745522f88758cfcc7b29a2b38f9039cdc8228659ffb25307ce39fc7136
     maintainers:
     - name: patbos
@@ -236,7 +297,8 @@ entries:
   - apiVersion: v2
     appVersion: 4.1.1
     created: "2020-11-24T21:45:52.54715743Z"
-    description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to PlaneFinder
+    description: Pulls ModeS/BEAST information from a host or container providing
+      ModeS/BEAST data, and sends data to PlaneFinder
     digest: e2ce3310dc1904ce72639d97eb5b1edeb6d133c3763eca20d6aeecb52cf5f384
     maintainers:
     - name: patbos
@@ -262,7 +324,8 @@ entries:
   - apiVersion: v2
     appVersion: v0.3.5_build_20200727132301
     created: "2020-11-24T21:45:52.620018654Z"
-    description: Pulls ModeS/BEAST information from a host or container providing ModeS/BEAST data, and sends data to RadarBox
+    description: Pulls ModeS/BEAST information from a host or container providing
+      ModeS/BEAST data, and sends data to RadarBox
     digest: 9a3bab892496fad294fa0339327c1cd6521adcd78f5199dbf4dda304e1f5bb44
     maintainers:
     - name: patbos
@@ -288,7 +351,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.3
     created: "2023-01-19T19:49:58.33863075Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: c714cf54423c2f6c14bfdb1c0ea76fa38604b23395c1b830fc6a62d605424dae
     name: readsb
     type: application
@@ -298,7 +362,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.3
     created: "2023-01-18T20:11:10.350728019Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: 3c035c42f2a088fafbd6000d95b71ce115669f4639727092251fd0d0677a9afb
     name: readsb
     type: application
@@ -308,7 +373,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.3
     created: "2022-05-17T19:53:47.95056497Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: c11038c80d1e28d345789950ec877fdc7500985473336438251adc59f6943020
     name: readsb
     type: application
@@ -318,7 +384,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.3
     created: "2022-05-16T20:06:00.356372541Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: f09ee061ad2019a6e239e711ac94edca172307a8283902015816929f3d93f72f
     name: readsb
     type: application
@@ -328,7 +395,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.3
     created: "2022-02-12T12:07:31.281144194Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: b88cc86bafe42321af823fa6993d7302b5236f99a8b07b6cf7f4fa2923b06fd0
     name: readsb
     type: application
@@ -338,7 +406,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.1
     created: "2021-07-30T13:39:22.834775228Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: 02e6fe7fbba48e1fd7d937d1dd132fa1486ad9ba800614f5ef6c5a995c389313
     name: readsb
     type: application
@@ -348,7 +417,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.1
     created: "2021-07-20T20:40:55.454323226Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: f98d707cabaaaf20b01ea3ff627e9f6879c721301f93262100d2e28711d05465
     name: readsb
     type: application
@@ -358,7 +428,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.1
     created: "2021-07-20T20:10:07.511111802Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: 26800388720b6fb5954299263cba31b3c23c6f52a9143ac103b8855430d96df1
     name: readsb
     type: application
@@ -368,7 +439,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.1
     created: "2021-07-19T18:24:20.13137424Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: cc9f8d93ea6ac6a502bf42e3e96392f47f3e29ae906526e7d44302d096fdb8d2
     name: readsb
     type: application
@@ -378,7 +450,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.1
     created: "2021-03-14T15:33:32.515039573Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: 78e431c9f9088abbef15cde2fe6608fb9b831d6156c61da2ee52cc6412b285c1
     name: readsb
     type: application
@@ -388,7 +461,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.1
     created: "2021-03-14T15:17:42.038798293Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: 61d3c7ab47da36df382584241b0198ea9d74d1c796fe55efe1c6aa2573209b0e
     name: readsb
     type: application
@@ -398,7 +472,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.1
     created: "2021-03-05T22:24:07.265407582Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: aad59542cbf07772903605de1c4609bf99d0d4044969497e97332939e52e7717
     name: readsb
     type: application
@@ -408,7 +483,8 @@ entries:
   - apiVersion: v2
     appVersion: v4.0.1
     created: "2021-02-24T22:08:32.631843055Z"
-    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF, Modes-Beast and GNS5894 devices
+    description: Mictronics' readsb-protobuf Mode-S/ADSB/TIS decoder for RTLSDR, BladeRF,
+      Modes-Beast and GNS5894 devices
     digest: 27398606ae66d95539e8e414f58d5925038d7e98e06d9609fb752c718402fd39
     name: readsb
     type: application
@@ -416,6 +492,16 @@ entries:
     - https://github.com/patbos/helm-charts/releases/download/readsb-1.0.0/readsb-1.0.0.tgz
     version: 1.0.0
   tar1090:
+  - apiVersion: v2
+    appVersion: commit_0ffc4bd33deffae17cfaa6f4a746aa3db18754d1
+    created: "2026-04-25T18:34:57.806285391Z"
+    description: A Helm chart for Kubernetes
+    digest: a441392b77a45bac16021940388a5b0c9bbaec7030cd4e0031eff88f1bd97fb2
+    name: tar1090
+    type: application
+    urls:
+    - https://github.com/patbos/helm-charts/releases/download/tar1090-1.0.3/tar1090-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     appVersion: commit_0ffc4bd33deffae17cfaa6f4a746aa3db18754d1
     created: "2022-05-16T19:39:38.226435684Z"
@@ -467,4 +553,4 @@ entries:
     urls:
     - https://github.com/patbos/helm-charts/releases/download/virtualradarserver-1.0.0/virtualradarserver-1.0.0.tgz
     version: 1.0.0
-generated: "2020-10-25T22:43:17.18232843Z"
+generated: "2026-04-25T18:34:57.806387711Z"
