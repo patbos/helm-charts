@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  packages: write
 
 jobs:
   release:
@@ -30,3 +31,21 @@ jobs:
           charts_repo_url: https://helm.patbos.com
         env:
           CR_TOKEN: '${{ github.token }}'
+      - name: Publish charts to GHCR OCI registry
+        run: |
+          shopt -s nullglob
+          packages=(.cr-release-packages/*.tgz)
+
+          if [[ ${#packages[@]} -eq 0 ]]; then
+            echo "No chart packages found for OCI publishing."
+            exit 0
+          fi
+
+          echo "${{ github.token }}" | helm registry login ghcr.io \
+            --username "${{ github.actor }}" \
+            --password-stdin
+
+          owner="${GITHUB_REPOSITORY_OWNER,,}"
+          for package in "${packages[@]}"; do
+            helm push "$package" "oci://ghcr.io/${owner}/helm-charts"
+          done
