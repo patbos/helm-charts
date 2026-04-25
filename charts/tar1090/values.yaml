@@ -6,11 +6,21 @@ beast:
   host: 127.0.0.1
   port: 30005
 
-#timelapse:
-#  enable: true
-#  interval: 10
-#  history: 48
+location:
+  latitude: ""
+  longitude: ""
 
+timelapse:
+  enable: false
+  interval: ""
+  history: ""
+
+mlat:
+  host: ""
+  port: ""
+
+title:
+  showPlaneCount: false
 
 replicaCount: 1
 
