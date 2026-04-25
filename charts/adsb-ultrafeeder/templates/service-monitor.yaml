@@ -1,0 +1,21 @@
+{{- if .Values.prometheus.serviceMonitor.enabled -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    {{- include "adsb-ultrafeeder.labels" . | nindent 4 }}
+  name: {{ include "adsb-ultrafeeder.fullname" . }}
+spec:
+  endpoints:
+    {{- if .Values.prometheus.serviceMonitor.scrapeTelegraf }}
+    - interval: {{ .Values.prometheus.serviceMonitor.interval }}
+      port: telegraf
+    {{- end }}
+    {{- if .Values.prometheus.serviceMonitor.scrapeReadsb }}
+    - interval: {{ .Values.prometheus.serviceMonitor.interval }}
+      port: readsb-metrics
+    {{- end }}
+  selector:
+    matchLabels:
+      {{- include "adsb-ultrafeeder.selectorLabels" . | nindent 6 }}
+{{- end }}

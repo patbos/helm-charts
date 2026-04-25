@@ -1,0 +1,10 @@
+apiVersion: v2
+name: adsb-ultrafeeder
+description: ADS-B data collector with readsb, tar1090, graphs1090, MLAT, and aggregator forwarding
+type: application
+version: 1.0.0
+appVersion: latest
+sources:
+  - https://github.com/sdr-enthusiasts/docker-adsb-ultrafeeder
+maintainers:
+  - name: patbos

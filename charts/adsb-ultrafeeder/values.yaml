@@ -1,0 +1,129 @@
+# Default values for adsb-ultrafeeder.
+# This is a YAML-formatted file.
+
+replicaCount: 1
+
+image:
+  repository: ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+  # privileged: true
+
+timezone: GMT
+
+location:
+  latitude: "17.0"
+  longitude: "59.0"
+  altitude: "5m"
+
+ultrafeeder:
+  # Semicolon-separated ULTRAFEEDER_CONFIG entries, for example:
+  # adsb,feed.adsb.fi,30004,beast_reduce_plus_out;mlat,feed.adsb.fi,31090
+  config: ""
+  uuid: ""
+  mlatUser: ""
+
+readsb:
+  # Set when using a local SDR, for example rtlsdr, modesbeast, or gnshulc.
+  deviceType: ""
+  rtlsdrDevice: ""
+  beastSerial: ""
+  gain: auto
+  extraArgs: ""
+
+usb:
+  # Enable when using an RTL-SDR or other USB receiver from the Kubernetes node.
+  enabled: false
+  hostPath: /dev/bus/usb
+  mountPath: /dev/bus/usb
+  readOnly: false
+
+beast:
+  # Set host when receiving Mode-S/Beast data from another decoder instead of local SDR hardware.
+  host: ""
+  port: 30005
+
+service:
+  type: ClusterIP
+  annotations: {}
+  ports:
+    http: 80
+    rawIn: 30001
+    rawOut: 30002
+    sbsOut: 30003
+    beastIn: 30004
+    beastOut: 30005
+    beastReduceOut: 30006
+    jsonOut: 30047
+    mlathubSbsOut: 31003
+    mlathubBeastIn: 31004
+    mlathubBeastOut: 31005
+    mlathubBeastReduceOut: 31006
+    telegrafMetrics: 9273
+    readsbMetrics: 9274
+
+prometheus:
+  enabled: false
+  serviceMonitor:
+    enabled: false
+    interval: 30s
+    scrapeTelegraf: true
+    scrapeReadsb: true
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+resources: {}
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+extraEnv: []
+# - name: LOGLEVEL
+#   value: verbose
+
+volumes: []
+# - name: usb
+#   hostPath:
+#     path: /dev/bus/usb
+
+volumeMounts: []
+# - name: usb
+#   mountPath: /dev/bus/usb
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
