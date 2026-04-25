@@ -7,14 +7,17 @@ on:
 #    paths:
 #      - 'charts/**'
 
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: Fetch history
-        run: git fetch --prune --unshallow
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
@@ -22,8 +25,8 @@ jobs:
       - name: Fetch history
         run: git fetch --prune
       - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.1.0
+        uses: helm/chart-releaser-action@v1.7.0
         with:
           charts_repo_url: https://helm.patbos.com
         env:
-          CR_TOKEN: '${{ secrets.CR_TOKEN }}'
+          CR_TOKEN: '${{ github.token }}'
