@@ -1,0 +1,177 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "adsb-ultrafeeder.fullname" . }}
+  labels:
+    {{- include "adsb-ultrafeeder.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "adsb-ultrafeeder.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "adsb-ultrafeeder.selectorLabels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "adsb-ultrafeeder.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: TZ
+              value: {{ .Values.timezone | quote }}
+            - name: LAT
+              value: {{ .Values.location.latitude | quote }}
+            - name: LONG
+              value: {{ .Values.location.longitude | quote }}
+            - name: ALT
+              value: {{ .Values.location.altitude | quote }}
+            {{- if .Values.ultrafeeder.config }}
+            - name: ULTRAFEEDER_CONFIG
+              value: {{ .Values.ultrafeeder.config | quote }}
+            {{- end }}
+            {{- if .Values.ultrafeeder.uuid }}
+            - name: UUID
+              value: {{ .Values.ultrafeeder.uuid | quote }}
+            {{- end }}
+            {{- if .Values.ultrafeeder.mlatUser }}
+            - name: MLAT_USER
+              value: {{ .Values.ultrafeeder.mlatUser | quote }}
+            {{- end }}
+            {{- if .Values.beast.host }}
+            - name: BEASTHOST
+              value: {{ .Values.beast.host | quote }}
+            - name: BEASTPORT
+              value: {{ .Values.beast.port | quote }}
+            {{- end }}
+            {{- if .Values.readsb.deviceType }}
+            - name: READSB_DEVICE_TYPE
+              value: {{ .Values.readsb.deviceType | quote }}
+            {{- end }}
+            {{- if .Values.readsb.rtlsdrDevice }}
+            - name: READSB_RTLSDR_DEVICE
+              value: {{ .Values.readsb.rtlsdrDevice | quote }}
+            {{- end }}
+            {{- if .Values.readsb.beastSerial }}
+            - name: READSB_BEAST_SERIAL
+              value: {{ .Values.readsb.beastSerial | quote }}
+            {{- end }}
+            {{- if .Values.readsb.gain }}
+            - name: READSB_GAIN
+              value: {{ .Values.readsb.gain | quote }}
+            {{- end }}
+            {{- if .Values.readsb.extraArgs }}
+            - name: READSB_EXTRA_ARGS
+              value: {{ .Values.readsb.extraArgs | quote }}
+            {{- end }}
+            {{- if .Values.prometheus.enabled }}
+            - name: PROMETHEUS_ENABLE
+              value: "true"
+            {{- end }}
+            {{- with .Values.extraEnv }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+            - name: raw-in
+              containerPort: 30001
+              protocol: TCP
+            - name: raw-out
+              containerPort: 30002
+              protocol: TCP
+            - name: sbs-out
+              containerPort: 30003
+              protocol: TCP
+            - name: beast-in
+              containerPort: 30004
+              protocol: TCP
+            - name: beast-out
+              containerPort: 30005
+              protocol: TCP
+            - name: beast-reduce
+              containerPort: 30006
+              protocol: TCP
+            - name: json-out
+              containerPort: 30047
+              protocol: TCP
+            - name: mlathub-sbs
+              containerPort: 31003
+              protocol: TCP
+            - name: mlathub-bi
+              containerPort: 31004
+              protocol: TCP
+            - name: mlathub-bo
+              containerPort: 31005
+              protocol: TCP
+            - name: mlathub-br
+              containerPort: 31006
+              protocol: TCP
+            - name: telegraf
+              containerPort: 9273
+              protocol: TCP
+            - name: readsb-metrics
+              containerPort: 9274
+              protocol: TCP
+          {{- with .Values.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          {{- if or .Values.volumeMounts .Values.usb.enabled }}
+          volumeMounts:
+            {{- with .Values.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{- if $.Values.usb.enabled }}
+            - name: usb
+              mountPath: {{ $.Values.usb.mountPath }}
+              readOnly: {{ $.Values.usb.readOnly }}
+            {{- end }}
+          {{- end }}
+      {{- if or .Values.volumes .Values.usb.enabled }}
+      volumes:
+        {{- if .Values.usb.enabled }}
+        - name: usb
+          hostPath:
+            path: {{ .Values.usb.hostPath }}
+        {{- end }}
+        {{- with .Values.volumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

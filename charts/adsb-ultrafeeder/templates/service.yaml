@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "adsb-ultrafeeder.fullname" . }}
+  labels:
+    {{- include "adsb-ultrafeeder.labels" . | nindent 4 }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.ports.http }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: {{ .Values.service.ports.rawIn }}
+      targetPort: raw-in
+      protocol: TCP
+      name: raw-in
+    - port: {{ .Values.service.ports.rawOut }}
+      targetPort: raw-out
+      protocol: TCP
+      name: raw-out
+    - port: {{ .Values.service.ports.sbsOut }}
+      targetPort: sbs-out
+      protocol: TCP
+      name: sbs-out
+    - port: {{ .Values.service.ports.beastIn }}
+      targetPort: beast-in
+      protocol: TCP
+      name: beast-in
+    - port: {{ .Values.service.ports.beastOut }}
+      targetPort: beast-out
+      protocol: TCP
+      name: beast-out
+    - port: {{ .Values.service.ports.beastReduceOut }}
+      targetPort: beast-reduce
+      protocol: TCP
+      name: beast-reduce
+    - port: {{ .Values.service.ports.jsonOut }}
+      targetPort: json-out
+      protocol: TCP
+      name: json-out
+    - port: {{ .Values.service.ports.mlathubSbsOut }}
+      targetPort: mlathub-sbs
+      protocol: TCP
+      name: mlathub-sbs
+    - port: {{ .Values.service.ports.mlathubBeastIn }}
+      targetPort: mlathub-bi
+      protocol: TCP
+      name: mlathub-bi
+    - port: {{ .Values.service.ports.mlathubBeastOut }}
+      targetPort: mlathub-bo
+      protocol: TCP
+      name: mlathub-bo
+    - port: {{ .Values.service.ports.mlathubBeastReduceOut }}
+      targetPort: mlathub-br
+      protocol: TCP
+      name: mlathub-br
+    - port: {{ .Values.service.ports.telegrafMetrics }}
+      targetPort: telegraf
+      protocol: TCP
+      name: telegraf
+    - port: {{ .Values.service.ports.readsbMetrics }}
+      targetPort: readsb-metrics
+      protocol: TCP
+      name: readsb-metrics
+  selector:
+    {{- include "adsb-ultrafeeder.selectorLabels" . | nindent 4 }}
